@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: banana-ingress
+  namespace: banana
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: apple.test.rutwik.com
+      http:
+        paths:
+          - backend:
+              serviceName: banana-service
+              servicePort: 5678
+            path: /eksbanana
