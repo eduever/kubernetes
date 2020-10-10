@@ -15,6 +15,9 @@ export AWS_PROFILE="admin"
 echo 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-devel' >>~/.bash_profile
 
 ######### kubernetes native cmds ###########
+
+## official cheatsheet link:  https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
 kubectl describe configmap -n kube-system aws-auth
 kubectl edit -n kube-system configmap/aws-auth
 kubectl -n kube-system get cm
@@ -30,10 +33,11 @@ kubectl get ingress -n banana
 
 kubectl create namespace <insert-some-namespace-name>
 kubectl delete namespaces <insert-some-namespace-name1> <insert-some-namespace-name2>
-https://stackoverflow.com/questions/47128586/how-to-delete-all-resources-from-kubernetes-one-time
 
-
+### https://stackoverflow.com/questions/47128586/how-to-delete-all-resources-from-kubernetes-one-time
 kubectl delete all --all
+
+
 kubectl delete pod,svc,deployment,ing,job --all -n ingress-nigx
 
 kubectl -n <namespace> logs -f deployment/<app-name> --all-containers=true --since=10m
